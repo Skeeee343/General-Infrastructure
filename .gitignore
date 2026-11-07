@@ -1,0 +1,5 @@
+# real secrets — never committed
+.env
+# noise
+*.log
+.DS_Store
