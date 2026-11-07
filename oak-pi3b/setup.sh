@@ -35,8 +35,12 @@ Description=py-kms (SystemRage) KMS emulator
 After=network-online.target
 Wants=network-online.target
 [Service]
-ExecStart=/usr/bin/python3 /opt/py-kms/pykms_Server.py
+Type=simple
 Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/opt/py-kms/py-kms
+ExecStart=/usr/bin/python3 /opt/py-kms/py-kms/pykms_Server.py 0.0.0.0 1688
 [Install]
 WantedBy=multi-user.target
 EOF
