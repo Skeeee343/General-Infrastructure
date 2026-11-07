@@ -22,11 +22,11 @@ No Docker / desktop / Unbound — 1GB RAM, light blocklists only.
 
 ```bash
 # on the Pi (public repo — no login needed, replace YOU after first push)
-curl -sSL https://raw.githubusercontent.com/YOU/General-Infrastructure/main/oak-pi3b/setup.sh -o setup.sh
-curl -sSL https://raw.githubusercontent.com/YOU/General-Infrastructure/main/oak-pi3b/.env.example -o .env
+curl -sSL https://raw.githubusercontent.com/Skeeee343/General-Infrastructure/main/oak-pi3b/setup.sh -o setup.sh
+curl -sSL https://raw.githubusercontent.com/Skeeee343/General-Infrastructure/main/oak-pi3b/.env.example -o .env
 nano .env   # fill DUCKDNS_DOMAIN + DUCKDNS_TOKEN
 sudo bash ./setup.sh
 ```
 
-Better: `git clone https://github.com/YOU/General-Infrastructure.git`, then
+Better: `git clone https://github.com/Skeeee343/General-Infrastructure.git`, then
 `cd General-Infrastructure/oak-pi3b && cp .env.example .env && nano .env && sudo ./setup.sh`.
