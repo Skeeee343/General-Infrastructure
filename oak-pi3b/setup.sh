@@ -21,7 +21,9 @@ apt-get install -y git python3 curl cron
 # 2. duckdns cron (every 5 min)
 cat > /usr/local/sbin/duckdns-update.sh <<EOF
 #!/bin/sh
-curl -fsS "https://www.duckdns.org/update?domains=${DUCKDNS_DOMAIN}&token=${DUCKDNS_TOKEN}&ip=" -o /var/log/duckdns.log
+# Appends timestamped results: OK = updated, KO = bad domain/token, CURL_FAILED = no network.
+RESP=\$(curl -fsS "https://www.duckdns.org/update?domains=${DUCKDNS_DOMAIN}&token=${DUCKDNS_TOKEN}&ip=") || RESP="CURL_FAILED"
+echo "\$(date -u +%Y-%m-%dT%H:%M:%SZ) \$RESP" >> /var/log/duckdns.log
 EOF
 chmod +x /usr/local/sbin/duckdns-update.sh
 echo "*/5 * * * * root /usr/local/sbin/duckdns-update.sh" > /etc/cron.d/duckdns
