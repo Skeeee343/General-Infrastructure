@@ -27,11 +27,11 @@ chmod +x /usr/local/sbin/duckdns-update.sh
 echo "*/5 * * * * root /usr/local/sbin/duckdns-update.sh" > /etc/cron.d/duckdns
 /usr/local/sbin/duckdns-update.sh || echo "DuckDNS first update failed — check domain/token"
 
-# 3. py-kms (SystemRage) on tcp/1688, LAN-only = do not port-forward
-if [ -d /opt/py-kms/.git ]; then git -C /opt/py-kms pull --ff-only; else rm -rf /opt/py-kms && git clone --depth 1 https://github.com/SystemRage/py-kms.git /opt/py-kms; fi
+# 3. py-kms (maintained Py-KMS-Organization fork; SystemRage is abandoned, breaks on py3.10+) on tcp/1688, LAN-only = do not port-forward
+if [ -d /opt/py-kms/.git ]; then git -C /opt/py-kms pull --ff-only; else rm -rf /opt/py-kms && git clone --depth 1 https://github.com/Py-KMS-Organization/py-kms.git /opt/py-kms; fi
 cat > /etc/systemd/system/py-kms.service <<EOF
 [Unit]
-Description=py-kms (SystemRage) KMS emulator
+Description=py-kms KMS emulator
 After=network-online.target
 Wants=network-online.target
 [Service]

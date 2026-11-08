@@ -7,7 +7,7 @@ No Docker / desktop / Unbound — 1GB RAM, light blocklists only.
 
 1. Base update
 2. DuckDNS cron (keeps dynamic DNS fresh)
-3. py-kms via systemd ([SystemRage/py-kms](https://github.com/SystemRage/py-kms))
+3. py-kms via systemd ([Py-KMS-Organization/py-kms](https://github.com/Py-KMS-Organization/py-kms))
 4. Pi-hole last (official installer, takes over DNS/HTTP)
 
 ## Ports
